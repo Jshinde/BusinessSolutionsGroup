@@ -11,10 +11,10 @@ import java.sql.SQLException;
  *
  * @author cpeaden
  */
-public class DBTester
-{
+public class DBTester 
+{ 
     public static void main(String[] args)throws SQLException
     {
         DBMgr data = new DBMgr();
-    }
+    } 
 }
