@@ -5,6 +5,10 @@
  */
 package Login;
 
+import java.awt.event.ActionEvent;
+import static java.lang.Integer.parseInt;
+import java.sql.SQLException;
+
 /**
  *
  * @author cpeaden
@@ -29,29 +33,27 @@ public class LoginGUI extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        loginNum = new javax.swing.JTextField();
+        loginBtn = new javax.swing.JButton();
         cancelBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
-                jTextField1ActionPerformed(evt);
+        /*
+        loginNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginNumActionPerformed(evt);
             }
         });
+        */
 
-        jButton1.setText("Login");
+        loginBtn.setText("Login");
 
         cancelBtn.setText("Cancel");
-        cancelBtn.addActionListener(new java.awt.event.ActionListener() 
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt) 
-            {
+        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelBtnActionPerformed(evt);
             }
         });
@@ -73,14 +75,14 @@ public class LoginGUI extends javax.swing.JFrame
                 .addGap(181, 181, 181)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1))
+                    .addComponent(loginBtn))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(cancelBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1)))
+                        .addComponent(loginNum)))
                 .addContainerGap(181, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -90,11 +92,11 @@ public class LoginGUI extends javax.swing.JFrame
                 .addComponent(jLabel2)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(loginBtn)
                     .addComponent(cancelBtn))
                 .addGap(0, 66, Short.MAX_VALUE))
         );
@@ -113,6 +115,11 @@ public class LoginGUI extends javax.swing.JFrame
         System.exit(0);
     }//GEN-LAST:event_cancelBtnActionPerformed
 
+    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) throws SQLException
+    {
+        LoginController lc = new LoginController();
+        lc.getUserID(parseInt(loginNum.getText()));
+    }
     /**
      * @param args the command line arguments
      */
@@ -153,9 +160,9 @@ public class LoginGUI extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelBtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton loginBtn;
+    private javax.swing.JTextField loginNum;
     // End of variables declaration//GEN-END:variables
 }

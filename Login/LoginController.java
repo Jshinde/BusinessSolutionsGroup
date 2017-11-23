@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Login;
+import Database.DBMgr;
+import java.sql.SQLException;
 
 /**
  *
@@ -12,11 +14,11 @@ package Login;
 public class LoginController {
     private int userID;
     
-    public int getUserID(int newUserID)
+    public void getUserID(int newUserID) throws SQLException
     {
         newUserID = userID;
+        DBMgr temp = new DBMgr();
         
-        //figure out how to connect GUI button here.
-        
+        temp.loginToProgram(userID);
     }
 }
