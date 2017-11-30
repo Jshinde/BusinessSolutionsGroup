@@ -128,6 +128,7 @@ public class LoginGUI extends javax.swing.JFrame
         int ID;
         ID = parseInt(loginNum.getText());
         lc.login(ID);
+        this.dispose();
     }                                        
 
    /* private void loginBtnActionPerformed(java.awt.event.ActionEvent evt)
