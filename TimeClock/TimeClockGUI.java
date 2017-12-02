@@ -8,6 +8,8 @@ package TimeClock;
 
 import Login.LoginGUI;
 import Ticketing.TaskTicketGUI;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -15,11 +17,44 @@ import Ticketing.TaskTicketGUI;
  */
 public class TimeClockGUI extends javax.swing.JFrame {
 
-    /**
+private int timeRun = 0;
+    
+   /**
      * Creates new form TimeClockGUI
      */
     public TimeClockGUI() {
         initComponents();
+        
+       new Thread()
+        {
+            public void run()
+            {
+                while(timeRun == 0)
+                {
+                    Calendar cal = new GregorianCalendar();
+                    
+                   int hour = cal.get(Calendar.HOUR);
+                    int min = cal.get(Calendar.MINUTE);
+                    int sec = cal.get(Calendar.SECOND);
+                    int AM_PM = cal.get(Calendar.AM_PM);
+                    
+                   String day_night = "";
+                    
+                   if(AM_PM == 1)
+                    {
+                        day_night = "PM";
+                    }
+                    else
+                    {
+                        day_night = "AM";
+                    }
+                    
+                   String time = hour + ":" + min + ":" + sec + " " + day_night;
+                    
+                   Clock.setText(time);
+                }
+            }
+        }.start();
     }
 
     /**
@@ -33,12 +68,11 @@ public class TimeClockGUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         LogoutButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        Clock = new javax.swing.JLabel();
         ClockInButton = new javax.swing.JButton();
         ClockOutButton = new javax.swing.JButton();
         TaskTicketButton = new javax.swing.JButton();
         SchedulerButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,9 +86,9 @@ public class TimeClockGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 56)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("9:30:49");
+        Clock.setFont(new java.awt.Font("Tahoma", 0, 56)); // NOI18N
+        Clock.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Clock.setText("9:30:49");
 
         ClockInButton.setText("Clock-In");
         ClockInButton.addActionListener(new java.awt.event.ActionListener() {
@@ -79,8 +113,6 @@ public class TimeClockGUI extends javax.swing.JFrame {
 
         SchedulerButton.setText("Scheduler");
 
-        jButton1.setText("jButton1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,18 +127,14 @@ public class TimeClockGUI extends javax.swing.JFrame {
                 .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(400, 400, 400)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(ClockInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(ClockOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(500, 500, 500)
-                        .addComponent(jButton1)))
+                        .addGap(400, 400, 400)
+                        .addComponent(Clock, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ClockInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ClockOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -117,10 +145,8 @@ public class TimeClockGUI extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TaskTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SchedulerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(86, 86, 86)
-                .addComponent(jButton1)
-                .addGap(39, 39, 39)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(157, 157, 157)
+                .addComponent(Clock, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ClockInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,13 +218,12 @@ public class TimeClockGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
+    private javax.swing.JLabel Clock;
     private javax.swing.JButton ClockInButton;
     private javax.swing.JButton ClockOutButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton SchedulerButton;
     private javax.swing.JButton TaskTicketButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration                   
 }
