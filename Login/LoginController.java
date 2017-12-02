@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Login;
-import Ticketing.TaskTicketGUI;
+import TimeClock.TimeClockGUI;
 import Database.DBMgr;
 import java.sql.SQLException;
 
@@ -26,8 +26,8 @@ public class LoginController {
     {
        if (userID == 123456)
        {
-           TaskTicketGUI task = new TaskTicketGUI();
-           task.setVisible(true);
+           TimeClockGUI time = new TimeClockGUI();
+           time.setVisible(true);
            
        }
     }
