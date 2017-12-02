@@ -5,6 +5,7 @@
  */
 package TimeClock;
 
+import Login.LoginGUI;
 import Ticketing.TaskTicketGUI;
 
 /**
@@ -43,6 +44,11 @@ public class TimeClockGUI extends javax.swing.JFrame {
         jLabel1.setText("Business Solutions");
 
         LogoutButton.setText("Logout");
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 56)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -132,6 +138,13 @@ public class TimeClockGUI extends javax.swing.JFrame {
         task.setVisible(true);
         this.dispose();
     }                                                
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+        LoginGUI login = new LoginGUI();
+        login.setVisible(true);
+        this.dispose();
+    }                                            
 
     /**
      * @param args the command line arguments
