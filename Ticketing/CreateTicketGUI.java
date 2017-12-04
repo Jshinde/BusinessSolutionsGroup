@@ -189,7 +189,11 @@ public class CreateTicketGUI extends javax.swing.JFrame {
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         ErrorMessage.setText("");
         DefaultTableModel model = (DefaultTableModel) TaskTable.getModel();
-        if(!TaskField.getText().trim().equals(""))
+        if(!EmployeeField.getText().equals("123456"))
+        {
+            ErrorMessage.setText("Enter a valid Employee ID.");
+        }
+        else if(!TaskField.getText().trim().equals(""))
         {
             ErrorMessage.setText("");
             SendLabel.setText("");
