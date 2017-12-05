@@ -12,6 +12,8 @@ import java.sql.SQLException;
 /**
  *
  * @author cpeaden
+ * 
+ * blah
  */
 public class LoginGUI extends javax.swing.JFrame 
 {
