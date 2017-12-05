@@ -33,8 +33,9 @@ public class LoginController {
        {
            TimeClockGUI time = new TimeClockGUI();
            time.setVisible(true);
-           
        }
+       
+       
     }
     
     public void cancelPressed()
