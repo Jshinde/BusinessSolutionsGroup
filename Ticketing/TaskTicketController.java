@@ -6,6 +6,7 @@
 package Ticketing;
 import TimeClock.TimeClockGUI;
 import Database.DBMgr;
+import Login.LoginGUI;
 import java.sql.SQLException;
 
 /**
@@ -13,11 +14,36 @@ import java.sql.SQLException;
  * @author Joshua
  */
 public class TaskTicketController {
+    private final TimeClockGUI clock = new TimeClockGUI();
+    private final LoginGUI login = new LoginGUI();
+    private final CreateTicketGUI newTicket = new CreateTicketGUI();
     
     public void login(int userID)
     {
-        TimeClockGUI clock = new TimeClockGUI();
+        //TimeClockGUI clock = new TimeClockGUI();
         clock.setVisible(true);
+    }
+    
+    public void timeClockPressed()
+    {
+        //TimeClockGUI clock = new TimeClockGUI();
+        clock.setVisible(true);
+    }
+    
+    public void schedulerPressed()
+    {
+        //CHANGE TO SCHEDULER!!!
+        clock.setVisible(true);
+    }
+    
+    public void logout()
+    {
+        login.setVisible(true);
+    }
+    
+    public void newTicket()
+    {
+        newTicket.setVisible(true);
     }
 
     public void getUserID(int ID_NUM) {

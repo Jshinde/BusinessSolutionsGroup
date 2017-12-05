@@ -15,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Joshua
  */
 public class TaskTicketGUI extends javax.swing.JFrame {
+    
+    private TaskTicketController taskCont = new TaskTicketController();
 
     /**
      * Creates new form TaskTicketGUI
@@ -181,20 +183,17 @@ public class TaskTicketGUI extends javax.swing.JFrame {
     }
     
     private void TimeClockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeClockButtonActionPerformed
-        TimeClockGUI time = new TimeClockGUI();
-        time.setVisible(true);
+        taskCont.timeClockPressed();
         this.dispose();
     }//GEN-LAST:event_TimeClockButtonActionPerformed
 
     private void SchedulerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SchedulerButtonActionPerformed
-        TimeClockGUI time = new TimeClockGUI();
-        time.setVisible(true);
+        taskCont.schedulerPressed();
         this.dispose();
     }//GEN-LAST:event_SchedulerButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        LoginGUI login = new LoginGUI();
-        login.setVisible(true);
+        taskCont.logout();
         this.dispose();
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
@@ -204,8 +203,7 @@ public class TaskTicketGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ViewTicketsButtonActionPerformed
 
     private void CreateTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateTicketButtonActionPerformed
-        CreateTicketGUI create = new CreateTicketGUI();
-        create.setVisible(true);
+        taskCont.newTicket();
         this.dispose();
     }//GEN-LAST:event_CreateTicketButtonActionPerformed
 
