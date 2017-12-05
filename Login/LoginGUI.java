@@ -118,7 +118,10 @@ public class LoginGUI extends javax.swing.JFrame
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) 
     {                                          
         // TODO add your handling code here:
-        System.exit(0);
+        //System.exit(0);
+        
+        LoginController lc = new LoginController();
+        lc.cancelPressed();
     }                                         
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         

@@ -13,6 +13,9 @@ import java.sql.SQLException;
  * @author cpeaden
  */
 public class LoginController {
+    
+    LoginGUI gui = new LoginGUI();
+    
    /* private int userID;
     DBMgr temp = null;
     
@@ -30,6 +33,11 @@ public class LoginController {
            time.setVisible(true);
            
        }
+    }
+    
+    public void cancelPressed()
+    {
+        System.exit(0);
     }
 
     public void getUserID(int ID_NUM) {
