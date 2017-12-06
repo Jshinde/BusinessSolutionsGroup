@@ -75,6 +75,11 @@ public class StandardTimeClockGUI extends javax.swing.JFrame {
         ClockIn_OutLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Business Solutions");
@@ -253,6 +258,10 @@ public class StandardTimeClockGUI extends javax.swing.JFrame {
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        ClockIn_OutLabel.setText("");
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments
