@@ -6,8 +6,8 @@
 package TimeClock;
 
 import Login.LoginGUI;
-import Scheduler.SchedulerGUI;
 import Ticketing.TaskTicketGUI;
+import User.CreateUserGUI;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -17,6 +17,7 @@ import java.util.GregorianCalendar;
  */
 public class AdminTimeClockGUI extends javax.swing.JFrame {
     private int timeRun = 0;
+    private int timesClicked = 0;
     
     /**
       * Creates new form TimeClockGUI
@@ -87,11 +88,6 @@ public class AdminTimeClockGUI extends javax.swing.JFrame {
         });
 
         SchedulerButton.setText("Scheduler");
-        SchedulerButton.addActionListener(new java.awt.event.ActionListener() {
-        		public void actionPerformed(java.awt.event.ActionEvent evt) {
-        			SchedulerActionPerformed(evt);
-        		}
-        });
 
         LogoutButton.setText("Logout");
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +118,11 @@ public class AdminTimeClockGUI extends javax.swing.JFrame {
         ClockIn_OutLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         SchedulerButton1.setText("Add User");
+        SchedulerButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SchedulerButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,21 +136,23 @@ public class AdminTimeClockGUI extends javax.swing.JFrame {
                 .addComponent(SchedulerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SchedulerButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(399, 399, 399)
-                        .addComponent(ClockInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ClockOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(340, 340, 340)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Clock, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
-                            .addComponent(ClockIn_OutLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ClockIn_OutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ClockInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ClockOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(61, 61, 61))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(323, 323, 323)
+                        .addComponent(Clock, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(346, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,16 +165,16 @@ public class AdminTimeClockGUI extends javax.swing.JFrame {
                             .addComponent(TaskTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SchedulerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SchedulerButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(253, 253, 253)
+                        .addGap(199, 199, 199)
                         .addComponent(Clock, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92)
+                        .addGap(84, 84, 84)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ClockInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ClockOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addComponent(ClockIn_OutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ClockOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addComponent(ClockIn_OutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,12 +185,6 @@ public class AdminTimeClockGUI extends javax.swing.JFrame {
         task.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_TaskTicketButtonActionPerformed
-    
-    private void SchedulerActionPerformed(java.awt.event.ActionEvent evt) {
-    		SchedulerGUI schedule = new SchedulerGUI();
-    		schedule.setVisible(true);
-    		this.dispose();
-    }
 
     private void ClockInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClockInButtonActionPerformed
         Calendar cal = new GregorianCalendar();
@@ -209,7 +206,15 @@ public class AdminTimeClockGUI extends javax.swing.JFrame {
         
         String time = String.format("%02d:%02d:%02d %s", hour, min, sec, day_night);
         
-        ClockIn_OutLabel.setText("You have been clocked in at " + time);
+        if(getTimesClicked() == 0)
+        {
+            ClockIn_OutLabel.setText("You have been clocked in at " + time);
+            setTimesClicked(1);
+        }
+        else
+        {
+            ClockIn_OutLabel.setText("You are already clocked in.");
+        }
     }//GEN-LAST:event_ClockInButtonActionPerformed
 
     private void ClockOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClockOutButtonActionPerformed
@@ -232,14 +237,38 @@ public class AdminTimeClockGUI extends javax.swing.JFrame {
         
         String time = String.format("%02d:%02d:%02d %s", hour, min, sec, day_night);
         
-        ClockIn_OutLabel.setText("You have been clocked out at " + time);
+        if(getTimesClicked() == 1)
+        {
+            ClockIn_OutLabel.setText("You have been clocked out at " + time);
+            setTimesClicked(0);
+        }
+        else
+        {
+            ClockIn_OutLabel.setText("You are already clocked out.");
+        }
     }//GEN-LAST:event_ClockOutButtonActionPerformed
 
+    public int getTimesClicked()
+    {
+        return timesClicked;
+    }
+    
+    public void setTimesClicked(int timesClicked)
+    {
+        this.timesClicked = timesClicked;
+    }
+    
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LoginGUI login = new LoginGUI();
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void SchedulerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SchedulerButton1ActionPerformed
+        CreateUserGUI user = new CreateUserGUI();
+        user.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_SchedulerButton1ActionPerformed
 
     /**
      * @param args the command line arguments

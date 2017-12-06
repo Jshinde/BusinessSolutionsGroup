@@ -6,7 +6,6 @@
 package TimeClock;
 
 import Login.LoginGUI;
-import Scheduler.SchedulerGUI;
 import Ticketing.TaskTicketGUI;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -17,6 +16,8 @@ import java.util.GregorianCalendar;
  */
 public class StandardTimeClockGUI extends javax.swing.JFrame {
     private int timeRun = 0;
+    private int timesClicked = 0;
+    
     
     /**
       * Creates new form TimeClockGUI
@@ -86,11 +87,6 @@ public class StandardTimeClockGUI extends javax.swing.JFrame {
         });
 
         SchedulerButton.setText("Scheduler");
-        SchedulerButton.addActionListener(new java.awt.event.ActionListener() {
-        		public void actionPerformed(java.awt.event.ActionEvent evt) {
-        			SchedulerActionPerformed(evt);
-        		}
-        });
 
         LogoutButton.setText("Logout");
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -176,12 +172,6 @@ public class StandardTimeClockGUI extends javax.swing.JFrame {
         task.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_TaskTicketButtonActionPerformed
-    
-    private void SchedulerActionPerformed(java.awt.event.ActionEvent evt) {
-    		SchedulerGUI schedule = new SchedulerGUI();
-    		schedule.setVisible(true);
-    		this.dispose();
-    }
 
     private void ClockInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClockInButtonActionPerformed
         Calendar cal = new GregorianCalendar();
@@ -203,7 +193,16 @@ public class StandardTimeClockGUI extends javax.swing.JFrame {
         
         String time = String.format("%02d:%02d:%02d %s", hour, min, sec, day_night);
         
-        ClockIn_OutLabel.setText("You have been clocked in at " + time);
+        if(getTimesClicked() == 0)
+        {
+            ClockIn_OutLabel.setText("You have been clocked in at " + time);
+            setTimesClicked(1);
+        }
+        else
+        {
+            ClockIn_OutLabel.setText("You are already clocked in.");
+        }
+        
     }//GEN-LAST:event_ClockInButtonActionPerformed
 
     private void ClockOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClockOutButtonActionPerformed
@@ -226,9 +225,29 @@ public class StandardTimeClockGUI extends javax.swing.JFrame {
         
         String time = String.format("%02d:%02d:%02d %s", hour, min, sec, day_night);
         
-        ClockIn_OutLabel.setText("You have been clocked out at " + time);
+        
+        if(getTimesClicked() == 1)
+        {
+            ClockIn_OutLabel.setText("You have been clocked out at " + time);
+            setTimesClicked(0);
+        }
+        else
+        {
+            ClockIn_OutLabel.setText("You are already clocked out.");
+        }
+          
     }//GEN-LAST:event_ClockOutButtonActionPerformed
 
+    public int getTimesClicked()
+    {
+        return timesClicked;
+    }
+    
+    public void setTimesClicked(int timesClicked)
+    {
+        this.timesClicked = timesClicked;
+    }
+    
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
         LoginGUI login = new LoginGUI();
         login.setVisible(true);
