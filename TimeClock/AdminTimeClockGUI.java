@@ -7,7 +7,7 @@ package TimeClock;
 
 import Login.LoginGUI;
 import Ticketing.AdminTaskTicketGUI;
-import Ticketing.TaskTicketGUI;
+import Scheduler.AdminSchedulerGUI;
 import User.CreateUserGUI;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -91,6 +91,11 @@ public class AdminTimeClockGUI extends javax.swing.JFrame {
         });
 
         SchedulerButton.setText("Scheduler");
+        SchedulerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SchedulerButtonActionPerformed(evt);
+            }
+        });
 
         LogoutButton.setText("Logout");
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -280,6 +285,12 @@ public class AdminTimeClockGUI extends javax.swing.JFrame {
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         ClockIn_OutLabel.setText("");
     }//GEN-LAST:event_formMouseClicked
+
+    private void SchedulerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SchedulerButtonActionPerformed
+        AdminSchedulerGUI aSched = new AdminSchedulerGUI();
+        aSched.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_SchedulerButtonActionPerformed
 
     /**
      * @param args the command line arguments
