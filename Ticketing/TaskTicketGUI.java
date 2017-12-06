@@ -6,9 +6,10 @@
 package Ticketing;
 
 import Login.LoginGUI;
-import TimeClock.TimeClockGUI;
+import TimeClock.StandardTimeClockGUI;
 import javax.swing.table.DefaultTableModel;
 //import Scheduler.SchedulerGUI;
+//Comment
 
 /**
  *

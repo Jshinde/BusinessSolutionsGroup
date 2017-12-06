@@ -4,17 +4,17 @@
  * and open the template in the editor.
  */
 package Ticketing;
-import TimeClock.TimeClockGUI;
-import Database.DBMgr;
+import TimeClock.StandardTimeClockGUI;
 import Login.LoginGUI;
 import java.sql.SQLException;
+//Comment
 
 /**
  *
  * @author Joshua
  */
 public class TaskTicketController {
-    private final TimeClockGUI clock = new TimeClockGUI();
+    private final StandardTimeClockGUI clock = new StandardTimeClockGUI();
     private final LoginGUI login = new LoginGUI();
     private final CreateTicketGUI newTicket = new CreateTicketGUI();
     
