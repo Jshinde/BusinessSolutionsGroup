@@ -289,8 +289,14 @@ public class AdminTimeClockGUI extends javax.swing.JFrame {
 
     private void SchedulerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SchedulerButtonActionPerformed
 <<<<<<< HEAD
+<<<<<<< HEAD
         AdminSchedulerGUI aSched = new AdminSchedulerGUI();
         aSched.setVisible(true);
+=======
+        // TODO add your handling code here:
+        AdminScheduler schedule = new AdminScheduler();
+        schedule.setVisible(true);
+>>>>>>> 9954703531de31a4fe640740e31fc948f7b9abe3
 =======
         // TODO add your handling code here:
         AdminScheduler schedule = new AdminScheduler();
