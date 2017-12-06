@@ -6,6 +6,8 @@
 package Ticketing;
 import TimeClock.StandardTimeClockGUI;
 import Login.LoginGUI;
+import Scheduler.SchedulerGUI;
+
 import java.sql.SQLException;
 //Comment
 
@@ -32,7 +34,7 @@ public class TaskTicketController {
     
     public void schedulerPressed()
     {
-        //CHANGE TO SCHEDULER!!!
+        SchedulerGUI schd = new SchedulerGUI();
         clock.setVisible(true);
     }
     
