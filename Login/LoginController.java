@@ -6,6 +6,7 @@
 package Login;
 import TimeClock.TimeClockGUI;
 import Database.DBMgr;
+import TimeClock.AdminTimeClockGUI;
 import java.sql.SQLException;
 
 /**
@@ -33,6 +34,11 @@ public class LoginController {
        {
            TimeClockGUI time = new TimeClockGUI();
            time.setVisible(true);
+       }
+       else if (userID == 789456)
+       {
+           AdminTimeClockGUI admin = new AdminTimeClockGUI();
+           admin.setVisible(true);
        }
        
        

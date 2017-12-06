@@ -136,15 +136,22 @@ public class LoginGUI extends javax.swing.JFrame {
         
         int ID;
         ID = parseInt(loginNum.getText());
-        if(ID != 123456)
+        if(ID == 123456)
         {
-            ErrorMessage.setText("Please Enter a Valid Employee ID");
+            lc.login(ID);
+            this.dispose();
+            //ErrorMessage.setText("Please Enter a Valid Employee ID");
+        }
+        else if (ID == 789456)
+        {
+            lc.login(ID);
+            this.dispose();
         }
         else
         {
-            
-            lc.login(ID);
-            this.dispose();
+            ErrorMessage.setText("Please Enter a Valid Employee ID");
+            //lc.login(ID);
+            //this.dispose();
         }
         
     }//GEN-LAST:event_loginBtnActionPerformed
