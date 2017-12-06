@@ -17,6 +17,11 @@ public class SchedulerGUI extends JFrame
 		initComponents();
 	}
 	
+	public SchedulerGUI(String mode) 
+	{
+		initComponents(String mode);
+	}
+	
 	//Initialize Components
 	public void initComponents() 
 	{
@@ -25,5 +30,18 @@ public class SchedulerGUI extends JFrame
 		add(item1);
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		pack();
+	}
+	
+	public void initComponents(String mode) 
+	{
+		if(mode.contains("admin")) {
+			
+		}
+		else if(mode.contains("user")) {
+			
+		}
+		else {
+			
+		}
 	}
 }
