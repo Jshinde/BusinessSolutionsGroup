@@ -6,6 +6,7 @@
 package TimeClock;
 
 import Login.LoginGUI;
+import Ticketing.AdminTaskTicketGUI;
 import Ticketing.TaskTicketGUI;
 import User.CreateUserGUI;
 import java.util.Calendar;
@@ -181,7 +182,7 @@ public class AdminTimeClockGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TaskTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaskTicketButtonActionPerformed
-        TaskTicketGUI task = new TaskTicketGUI();
+        AdminTaskTicketGUI task = new AdminTaskTicketGUI();
         task.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_TaskTicketButtonActionPerformed

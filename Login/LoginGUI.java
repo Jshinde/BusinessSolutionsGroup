@@ -128,7 +128,7 @@ public class LoginGUI extends javax.swing.JFrame {
 
     public void ErrorMessage()
     {
-        ErrorMessage.setText("****");
+        ErrorMessage.setText("FUCK");
     }
     
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed

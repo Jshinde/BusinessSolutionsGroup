@@ -6,10 +6,7 @@
 package TimeClock;
 
 import Login.LoginGUI;
-import Scheduler.SchedulerGUI;
 import Ticketing.TaskTicketGUI;
-
-import java.awt.event.ActionEvent;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -90,11 +87,6 @@ public class StandardTimeClockGUI extends javax.swing.JFrame {
         });
 
         SchedulerButton.setText("Scheduler");
-        SchedulerButton.addActionListener(new java.awt.event.ActionListener() {
-        		public void actionPerformed(java.awt.event.ActionEvent evt) {
-        			SchedulerButtonActionPerformed(evt);
-        		}
-        });
 
         LogoutButton.setText("Logout");
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -180,13 +172,6 @@ public class StandardTimeClockGUI extends javax.swing.JFrame {
         task.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_TaskTicketButtonActionPerformed
-    
-    private void SchedulerButtonActionPerformed(java.awt.event.ActionEvent evt) {
-		SchedulerGUI sched = new SchedulerGUI();
-		sched.setVisible(true);
-		this.dispose();
-		
-	}
 
     private void ClockInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClockInButtonActionPerformed
         Calendar cal = new GregorianCalendar();
