@@ -8,29 +8,23 @@ import TimeClock.StandardTimeClockGUI;
 import Login.LoginGUI;
 import TimeClock.AdminTimeClockGUI;
 import Scheduler.AdminSchedulerGUI;
-import java.sql.SQLException;
-//Comment
+import Scheduler.SchedulerGUI;
 
-/**
- *
- * @author Joshua
- */
 public class TaskTicketController {
     private final StandardTimeClockGUI clock = new StandardTimeClockGUI();
     private final AdminTimeClockGUI aClock = new AdminTimeClockGUI();
     private final AdminSchedulerGUI aSched = new AdminSchedulerGUI();
+    private final SchedulerGUI sched = new SchedulerGUI();
     private final LoginGUI login = new LoginGUI();
     private final CreateTicketGUI newTicket = new CreateTicketGUI();
     
     public void login(int userID)
     {
-        //TimeClockGUI clock = new TimeClockGUI();
         clock.setVisible(true);
     }
     
     public void timeClockPressed()
     {
-        //TimeClockGUI clock = new TimeClockGUI();
         clock.setVisible(true);
     }
     
@@ -39,9 +33,14 @@ public class TaskTicketController {
         aClock.setVisible(true);
     }
     
-    public void schedulerPressed()
+    public void adminSchedulerPressed()
     {
         aSched.setVisible(true);
+    }
+    
+    public void schedulerPressed()
+    {
+        sched.setVisible(true);
     }
     
     public void logout()

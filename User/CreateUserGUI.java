@@ -7,10 +7,6 @@ package User;
 
 import TimeClock.AdminTimeClockGUI;
 
-/**
- *
- * @author Cole Peaden
- */
 public class CreateUserGUI extends javax.swing.JFrame {
 
     /**
@@ -195,7 +191,6 @@ public class CreateUserGUI extends javax.swing.JFrame {
 
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         AdminTimeClockGUI atime = new AdminTimeClockGUI();
-        atime.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_cancelBtnActionPerformed
 

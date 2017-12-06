@@ -4,19 +4,16 @@
  * and open the template in the editor.
  */
 package Login;
-import java.awt.event.ActionEvent;
 import static java.lang.Integer.parseInt;
-import java.sql.SQLException;
-/**
- *
- * @author Joshua
- */
-public class LoginGUI extends javax.swing.JFrame {
+
+public class LoginGUI extends javax.swing.JFrame 
+{
 
     /**
-     * Creates new form LoginGUI2
+     * Creates new form LoginGUI
      */
-    public LoginGUI() {
+    public LoginGUI() 
+    {
         initComponents();
     }
 
@@ -125,11 +122,6 @@ public class LoginGUI extends javax.swing.JFrame {
         lc.cancelPressed();
     }//GEN-LAST:event_cancelBtnActionPerformed
 
-    public void ErrorMessage()
-    {
-        ErrorMessage.setText("FUCK");
-    }
-    
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         LoginController lc = new LoginController();
         
@@ -139,7 +131,7 @@ public class LoginGUI extends javax.swing.JFrame {
         {
             lc.login(ID);
             this.dispose();
-            //ErrorMessage.setText("Please Enter a Valid Employee ID");
+            
         }
         else if (ID == 789456)
         {
@@ -149,8 +141,6 @@ public class LoginGUI extends javax.swing.JFrame {
         else
         {
             ErrorMessage.setText("Please Enter a Valid Employee ID");
-            //lc.login(ID);
-            //this.dispose();
         }
         
     }//GEN-LAST:event_loginBtnActionPerformed

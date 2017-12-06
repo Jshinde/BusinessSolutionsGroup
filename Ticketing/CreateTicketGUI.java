@@ -5,10 +5,7 @@
  */
 package Ticketing;
 import javax.swing.table.DefaultTableModel;
-/**
- *
- * @author Joshua
- */
+
 public class CreateTicketGUI extends javax.swing.JFrame {
 
     /**
@@ -258,8 +255,6 @@ public class CreateTicketGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteButtonActionPerformed
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
-        TaskTicketGUI task = new TaskTicketGUI();
-        task.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BackButtonActionPerformed
 
@@ -271,6 +266,9 @@ public class CreateTicketGUI extends javax.swing.JFrame {
         else
         {
             ErrorMessage.setText("");
+            TaskField.setText("");
+            EmployeeField.setText("");
+            DateField.setText("");
             TaskTable.setModel(new DefaultTableModel(null, new String[]{"Task", "Employee", "Completion Date"}));
             SendLabel.setText("Task(s) Successfully Sent!");
         }

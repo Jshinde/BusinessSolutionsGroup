@@ -4,17 +4,8 @@
  * and open the template in the editor.
  */
 package Ticketing;
-
-import Login.LoginGUI;
-import TimeClock.StandardTimeClockGUI;
 import javax.swing.table.DefaultTableModel;
-//import Scheduler.SchedulerGUI;
-//Comment
 
-/**
- *
- * @author Joshua
- */
 public class AdminTaskTicketGUI extends javax.swing.JFrame {
     
     private TaskTicketController taskCont = new TaskTicketController();
@@ -190,7 +181,7 @@ public class AdminTaskTicketGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_TimeClockButtonActionPerformed
 
     private void SchedulerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SchedulerButtonActionPerformed
-        taskCont.schedulerPressed();
+        taskCont.adminSchedulerPressed();
         this.dispose();
     }//GEN-LAST:event_SchedulerButtonActionPerformed
 
@@ -206,7 +197,6 @@ public class AdminTaskTicketGUI extends javax.swing.JFrame {
 
     private void CreateTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateTicketButtonActionPerformed
         taskCont.newTicket();
-        this.dispose();
     }//GEN-LAST:event_CreateTicketButtonActionPerformed
 
     private void CompleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CompleteButtonActionPerformed

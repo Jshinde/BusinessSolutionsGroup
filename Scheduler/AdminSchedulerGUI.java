@@ -9,11 +9,6 @@ import TimeClock.AdminTimeClockGUI;
 import Login.LoginGUI;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Joshua
- * awdmaowdm
- */
 public class AdminSchedulerGUI extends javax.swing.JFrame {
 
     /**
@@ -229,7 +224,7 @@ public class AdminSchedulerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void ShiftAvailBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShiftAvailBoxActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ShiftAvailBoxActionPerformed
 
     private void GenerateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateButtonActionPerformed

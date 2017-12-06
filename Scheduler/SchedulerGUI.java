@@ -2,19 +2,19 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
-
-*comment
  */
+
 package Scheduler;
+import Login.LoginGUI;
+import Ticketing.TaskTicketGUI;
+import TimeClock.StandardTimeClockGUI;
 
-/**
- *
- * @author LaptopPatron
- */
 public class SchedulerGUI extends javax.swing.JFrame {
-
+    
+    private int timesClicked = 0;
+    
     /**
-     * Creates new form SchedulerGUI1
+     * Creates new form SchedulerGUI
      */
     public SchedulerGUI() {
         initComponents();
@@ -30,141 +30,260 @@ public class SchedulerGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        loginBtn = new javax.swing.JButton();
-        cancelBtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
+        SubmitButton = new javax.swing.JButton();
+        CancelButton = new javax.swing.JButton();
+        MBox = new javax.swing.JCheckBox();
+        TBox = new javax.swing.JCheckBox();
+        WBox = new javax.swing.JCheckBox();
+        RBox = new javax.swing.JCheckBox();
+        FBox = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
+        TaskTicketButton = new javax.swing.JButton();
+        TimeClockButton = new javax.swing.JButton();
+        LogoutButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        HoursBox = new javax.swing.JComboBox<>();
+        SubmitLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Days Preference for Scheduling:");
+        jLabel1.setText("Hours Available:");
 
-        loginBtn.setText("Submit");
-        loginBtn.addActionListener(new java.awt.event.ActionListener() {
+        SubmitButton.setText("Submit");
+        SubmitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBtnActionPerformed(evt);
+                SubmitButtonActionPerformed(evt);
             }
         });
 
-        cancelBtn.setText("Cancel");
-        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+        CancelButton.setText("Cancel");
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelBtnActionPerformed(evt);
+                CancelButtonActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Available:");
-
-        jCheckBox1.setText("M");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        MBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        MBox.setText("M");
+        MBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                MBoxActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("T");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        TBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        TBox.setText("T");
+        TBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                TBoxActionPerformed(evt);
             }
         });
 
-        jCheckBox3.setText("W");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        WBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        WBox.setText("W");
+        WBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                WBoxActionPerformed(evt);
             }
         });
 
-        jCheckBox5.setText("R");
+        RBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        RBox.setText("R");
 
-        jCheckBox6.setText("F");
+        FBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        FBox.setText("F");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Scheduler/BusinessSolutionsLogo.png"))); // NOI18N
+
+        TaskTicketButton.setText("TaskTicket");
+        TaskTicketButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TaskTicketButtonActionPerformed(evt);
+            }
+        });
+
+        TimeClockButton.setText("TimeClock");
+        TimeClockButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TimeClockButtonActionPerformed(evt);
+            }
+        });
+
+        LogoutButton.setText("Logout");
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setText("Days Preference for Scheduling:");
+
+        HoursBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        HoursBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "                        ", "6:00AM - 2:00PM", "7:00AM - 3:00PM", "8:00AM - 4:00PM", "9:00AM - 5:00PM" }));
+
+        SubmitLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        SubmitLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(348, 348, 348)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TaskTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TimeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jLabel1))
+                        .addGap(189, 189, 189)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(MBox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TBox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(WBox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RBox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(FBox)
+                                .addGap(75, 75, 75))
+                            .addComponent(jLabel4))
+                        .addGap(87, 87, 87)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(HoursBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jCheckBox1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox6))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(408, Short.MAX_VALUE))
+                        .addGap(444, 444, 444)
+                        .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(313, 313, 313)
+                        .addComponent(SubmitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(389, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TaskTicketButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TimeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(182, 182, 182)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox6))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel1)
+                    .addComponent(HoursBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(247, 247, 247))
+                    .addComponent(MBox)
+                    .addComponent(TBox)
+                    .addComponent(WBox)
+                    .addComponent(RBox)
+                    .addComponent(FBox))
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SubmitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
+                .addComponent(SubmitLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(236, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        //SchedulerController lc = new SchedulerController();
+    private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
+        
+        
+        if(getTimesClicked() == 0)
+        {
+            MBox.setSelected(false);
+            TBox.setSelected(false);
+            WBox.setSelected(false);
+            RBox.setSelected(false);
+            FBox.setSelected(false);
+            HoursBox.setSelectedIndex(0);
+            SubmitLabel.setText("Schedule Request Successfully Sent.");
+            setTimesClicked(1);
+        }
+        else
+        {
+            SubmitLabel.setText("Please Select Input.");
+            setTimesClicked(0);
+        }
+        
+    }//GEN-LAST:event_SubmitButtonActionPerformed
 
-        //int ID;
-        //ID = parseInt(loginNum.getText());
-        //lc.login(ID);
-        //this.dispose();
-    }//GEN-LAST:event_loginBtnActionPerformed
+    public int getTimesClicked()
+    {
+        return timesClicked;
+    }
+    
+    public void setTimesClicked(int timesClicked)
+    {
+        this.timesClicked = timesClicked;
+    }
+    
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+        MBox.setSelected(false);
+        TBox.setSelected(false);
+        WBox.setSelected(false);
+        RBox.setSelected(false);
+        FBox.setSelected(false);
+        HoursBox.setSelectedIndex(0);
+    }//GEN-LAST:event_CancelButtonActionPerformed
 
-    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
-        //SchedulerController lc = new SchedulerController();
-        //lc.cancelPressed();
-    }//GEN-LAST:event_cancelBtnActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void MBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_MBoxActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void TBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_TBoxActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+    private void WBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    }//GEN-LAST:event_WBoxActionPerformed
+
+    private void TaskTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TaskTicketButtonActionPerformed
+        TaskTicketGUI task = new TaskTicketGUI();
+        task.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_TaskTicketButtonActionPerformed
+
+    private void TimeClockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeClockButtonActionPerformed
+        StandardTimeClockGUI task = new StandardTimeClockGUI();
+        task.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_TimeClockButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        LoginGUI login = new LoginGUI();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        SubmitLabel.setText("");
+        setTimesClicked(0);
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments
@@ -203,14 +322,20 @@ public class SchedulerGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancelBtn;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JButton CancelButton;
+    private javax.swing.JCheckBox FBox;
+    private javax.swing.JComboBox<String> HoursBox;
+    private javax.swing.JButton LogoutButton;
+    private javax.swing.JCheckBox MBox;
+    private javax.swing.JCheckBox RBox;
+    private javax.swing.JButton SubmitButton;
+    private javax.swing.JLabel SubmitLabel;
+    private javax.swing.JCheckBox TBox;
+    private javax.swing.JButton TaskTicketButton;
+    private javax.swing.JButton TimeClockButton;
+    private javax.swing.JCheckBox WBox;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton loginBtn;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
