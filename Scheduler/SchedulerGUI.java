@@ -34,14 +34,22 @@ public class SchedulerGUI extends JFrame
 	
 	public void initComponents(String mode) 
 	{
+		setLayout(new FlowLayout());
+		item1 = new JLabel("test");
+		
+		
 		if(mode.contains("admin")) {
-			
+			item1.setText("admit mode");
 		}
 		else if(mode.contains("user")) {
-			
+			item1.setText("user mode");
 		}
 		else {
-			
+			item1.setText("error mode");
 		}
+		
+		add(item1);
+		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		pack();
 	}
 }
