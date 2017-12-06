@@ -5,6 +5,8 @@
  */
 package User;
 
+import TimeClock.AdminTimeClockGUI;
+
 /**
  *
  * @author Cole Peaden
@@ -39,14 +41,14 @@ public class CreateUserGUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         cancelBtn = new javax.swing.JButton();
         createBtn = new javax.swing.JButton();
-        schedulerBtn = new javax.swing.JButton();
-        taskTicketBtn1 = new javax.swing.JButton();
-        logoutBtn = new javax.swing.JButton();
-
-        buttonGroup1.add(stdUserRadioBtn);
-        buttonGroup1.add(adminRadioBtn);
+        CreationMessage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         stdUserRadioBtn.setText("Standard User");
         stdUserRadioBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -78,24 +80,20 @@ public class CreateUserGUI extends javax.swing.JFrame {
         jLabel3.setText("Create A New User");
 
         cancelBtn.setText("Cancel");
+        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBtnActionPerformed(evt);
+            }
+        });
 
         createBtn.setText("Create");
-
-        schedulerBtn.setText("Scheduler");
-        schedulerBtn.addActionListener(new java.awt.event.ActionListener() {
+        createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                schedulerBtnActionPerformed(evt);
+                createBtnActionPerformed(evt);
             }
         });
 
-        taskTicketBtn1.setText("Task Ticket");
-
-        logoutBtn.setText("Log Out");
-        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutBtnActionPerformed(evt);
-            }
-        });
+        CreationMessage.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,37 +115,28 @@ public class CreateUserGUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(adminRadioBtn)))
                 .addGap(37, 37, 37))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(CreationMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(138, 138, 138))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(createBtn)
                         .addGap(32, 32, 32)
                         .addComponent(cancelBtn)
-                        .addGap(233, 233, 233))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(taskTicketBtn1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(schedulerBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logoutBtn)
-                .addContainerGap())
+                        .addGap(233, 233, 233))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(126, 126, 126))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(schedulerBtn)
-                    .addComponent(taskTicketBtn1)
-                    .addComponent(logoutBtn))
-                .addGap(100, 100, 100)
+                .addGap(121, 121, 121)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(firstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -161,13 +150,14 @@ public class CreateUserGUI extends javax.swing.JFrame {
                         .addComponent(IDField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                        .addGap(14, 14, 14))
+                        .addGap(2, 2, 2))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(stdUserRadioBtn)
                             .addComponent(adminRadioBtn))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(56, 56, 56)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(CreationMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelBtn)
                     .addComponent(createBtn))
@@ -189,13 +179,25 @@ public class CreateUserGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_firstNameFieldActionPerformed
 
-    private void schedulerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schedulerBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_schedulerBtnActionPerformed
+    private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
+        firstNameField.setText("");
+        lastNameField.setText("");
+        IDField.setText("");
+        stdUserRadioBtn.setSelected(false);
+        adminRadioBtn.setSelected(false);
+        
+        CreationMessage.setText("Account Successfully Created.");
+    }//GEN-LAST:event_createBtnActionPerformed
 
-    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutBtnActionPerformed
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        CreationMessage.setText("");
+    }//GEN-LAST:event_formMouseClicked
+
+    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
+        AdminTimeClockGUI atime = new AdminTimeClockGUI();
+        atime.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cancelBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,6 +235,7 @@ public class CreateUserGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CreationMessage;
     private javax.swing.JTextField IDField;
     private javax.swing.JRadioButton adminRadioBtn;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -244,9 +247,6 @@ public class CreateUserGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField lastNameField;
-    private javax.swing.JButton logoutBtn;
-    private javax.swing.JButton schedulerBtn;
     private javax.swing.JRadioButton stdUserRadioBtn;
-    private javax.swing.JButton taskTicketBtn1;
     // End of variables declaration//GEN-END:variables
 }
