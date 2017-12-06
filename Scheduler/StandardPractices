@@ -1,0 +1,11 @@
+IDE - Netbeans
+
+Comments - Block Comments
+
+Curly Braces - Next Line
+Ex: void someMethod()
+    {
+     	return something;
+    }
+
+Spacing - One blank line between methods

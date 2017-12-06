@@ -36,7 +36,6 @@ public class AdminTaskTicketGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TitleLabel = new javax.swing.JLabel();
         TimeClockButton = new javax.swing.JButton();
         SchedulerButton = new javax.swing.JButton();
         LogoutButton = new javax.swing.JButton();
@@ -46,6 +45,7 @@ public class AdminTaskTicketGUI extends javax.swing.JFrame {
         TaskTable = new javax.swing.JTable();
         CompleteButton = new javax.swing.JButton();
         ErrorMessage = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addMouseListener(new java.awt.event.MouseAdapter() {
@@ -53,9 +53,6 @@ public class AdminTaskTicketGUI extends javax.swing.JFrame {
                 formMouseClicked(evt);
             }
         });
-
-        TitleLabel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        TitleLabel.setText("Business Solutions");
 
         TimeClockButton.setText("TimeClock");
         TimeClockButton.addActionListener(new java.awt.event.ActionListener() {
@@ -111,12 +108,16 @@ public class AdminTaskTicketGUI extends javax.swing.JFrame {
 
         ErrorMessage.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Scheduler/BusinessSolutionsLogo.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(TitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TimeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -143,10 +144,10 @@ public class AdminTaskTicketGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(TimeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(TitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(SchedulerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                    .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(ErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,7 +278,7 @@ public class AdminTaskTicketGUI extends javax.swing.JFrame {
     private javax.swing.JTable TaskTable;
     private javax.swing.JScrollPane TaskTablePane;
     private javax.swing.JButton TimeClockButton;
-    private javax.swing.JLabel TitleLabel;
     private javax.swing.JButton ViewTicketsButton;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
