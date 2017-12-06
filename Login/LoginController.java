@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Login;
-import TimeClock.TimeClockGUI;
+import TimeClock.StandardTimeClockGUI;
 import Database.DBMgr;
 import TimeClock.AdminTimeClockGUI;
 import java.sql.SQLException;
@@ -32,7 +32,7 @@ public class LoginController {
     {
        if (userID == 123456)
        {
-           TimeClockGUI time = new TimeClockGUI();
+           StandardTimeClockGUI time = new StandardTimeClockGUI();
            time.setVisible(true);
        }
        else if (userID == 789456)
