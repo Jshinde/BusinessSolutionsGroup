@@ -43,6 +43,9 @@ public class CreateUserGUI extends javax.swing.JFrame {
         taskTicketBtn1 = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
 
+        buttonGroup1.add(stdUserRadioBtn);
+        buttonGroup1.add(adminRadioBtn);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         stdUserRadioBtn.setText("Standard User");
