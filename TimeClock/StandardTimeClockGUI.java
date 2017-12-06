@@ -6,6 +6,7 @@
 package TimeClock;
 
 import Login.LoginGUI;
+import Scheduler.SchedulerGUI;
 import Ticketing.TaskTicketGUI;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -89,6 +90,11 @@ public class StandardTimeClockGUI extends javax.swing.JFrame {
         });
 
         SchedulerButton.setText("Scheduler");
+        SchedulerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SchedulerButtonActionPerformed(evt);
+            }
+        });
 
         LogoutButton.setText("Logout");
         LogoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -136,16 +142,18 @@ public class StandardTimeClockGUI extends javax.swing.JFrame {
                 .addComponent(LogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(Clock, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(340, 340, 340)
-                            .addComponent(ClockIn_OutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(340, 340, 340)
+                        .addComponent(ClockIn_OutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(406, 406, 406)
                         .addComponent(ClockInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ClockOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Clock, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -263,6 +271,13 @@ public class StandardTimeClockGUI extends javax.swing.JFrame {
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         ClockIn_OutLabel.setText("");
     }//GEN-LAST:event_formMouseClicked
+
+    private void SchedulerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SchedulerButtonActionPerformed
+        // TODO add your handling code here:
+        SchedulerGUI schedule = new SchedulerGUI();
+        schedule.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_SchedulerButtonActionPerformed
 
     /**
      * @param args the command line arguments
