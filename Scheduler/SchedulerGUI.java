@@ -19,7 +19,7 @@ public class SchedulerGUI extends JFrame
 	
 	public SchedulerGUI(String mode) 
 	{
-		initComponents(String mode);
+		initComponents(mode);
 	}
 	
 	//Initialize Components
